@@ -1,0 +1,45 @@
+<div class="container">
+    <mat-toolbar color="primary">
+        <span>Search Employee by Id</span>
+    </mat-toolbar>
+</div>
+
+<div class="container ">
+    <mat-grid-list cols="2" rowHeight="100px">
+        <mat-grid-tile [colspan]="2" [rowspan]="1">
+            <img width="50" alt="employer profile" src="../assets/icons/employee.png" *ngIf="employee?.profile_image == '' "/>
+            <img width="50" alt="employer profile" src="employee?.profile_image" *ngIf="employee?.profile_image != '' "/>  
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <b>ID</b>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+            {{employee?.id}}
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <b>Name</b>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+            {{employee?.employee_name}}
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <b>Salary</b>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+            {{employee?.employee_salary}}
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <b>Age</b>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+            {{employee?.employee_age}}
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <b>Anual Salary</b>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+            {{employee?.employee_anual_salary}}
+        </mat-grid-tile>
+
+      </mat-grid-list>
+</div>

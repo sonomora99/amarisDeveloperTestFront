@@ -1,0 +1,39 @@
+<mat-toolbar >
+  <img
+  width="40"
+  alt="Angular Logo"
+  src="../assets/logo/logo.png"
+/>
+  <span>Developer test</span>
+  
+  
+</mat-toolbar>
+<!-- Toolbar -->
+
+<div class="container-fluid">
+  <div class="d-flex justify-content-center">
+    <form [formGroup]="employeeIdForm" >
+        <mat-form-field >
+          <mat-label>Employee ID </mat-label>
+          <input matInput placeholder="Ex. 1" type="number" formControlName="id">
+        </mat-form-field>
+        <span></span>
+        <button mat-fab color="primary" aria-label="search employee by id" (click)="SearchEmployee()">
+            <mat-icon>search</mat-icon>
+          </button>
+        
+      </form>
+
+</div>
+
+</div>  
+  <div class="container-fluid" >
+      <app-employee-list [employeesList]="employeesList" *ngIf="employeesList"></app-employee-list>
+      <app-employee [employee]="employee" *ngIf="employee"></app-employee>
+    <!-- <router-outlet></router-outlet> -->
+</div>
+  <!-- Footer -->
+  <footer>
+      
+  </footer> 
+  
