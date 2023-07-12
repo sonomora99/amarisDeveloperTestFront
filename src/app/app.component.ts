@@ -15,7 +15,9 @@ export class AppComponent {
   employeesList:Employee[] | undefined;
   employeeId:string;
   employee:Employee|undefined;
-
+  showAlert:boolean;
+  statusCode:string;
+  message:string;
   constructor( private fb:FormBuilder,private employeeService:EmployeeService){
 
   }
@@ -43,21 +45,40 @@ export class AppComponent {
   }
 
   getEmployeesList(){
+    this.showAlert= false;
     this.employeeService.getEmployeesList().subscribe(res=>{
-      
-      this.employeesList = res;
-      
+      if(res.status == "200"){
+        this.employeesList = res.data;
+      }else{
+        this.showAlert= true;
+        this.statusCode= res.status
+        this.message = res.message
+      }
     },
     error=>{
-
+      this.showAlert= true;
+      this.statusCode= "500"
+        this.message = "Internal server error"
     })
   }
   getEmployeeById(){
+    this.showAlert= false;
     this.employeeService.getEmployeeByID(this.employeeId).subscribe(res=>{
       
-      this.employee = res;
+      if(res.status == "200"){
+        this.employee = res.data[0];
+        // this.employeesList = res.data;
+      }else{
+        this.showAlert= true;
+        this.statusCode= res.status
+        this.message = res.message
+      }
     },
     error=>{
+      this.showAlert= true;
+      this.statusCode= "500"
+        this.message = "Internal server error"
+
     })
     
 

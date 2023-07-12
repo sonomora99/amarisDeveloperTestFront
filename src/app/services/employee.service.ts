@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Employee } from '../models/Employee';
+import { EmployeeResponse } from '../models/EmployeeResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -14,12 +14,12 @@ export class EmployeeService {
 
 
 
-  getEmployeesList():Observable<Employee[]>{
-    return this.http.get<Employee[]>("employees/");
+  getEmployeesList():Observable<EmployeeResponse>{
+    return this.http.get<EmployeeResponse>("employees/");
   }
 
   
-  getEmployeeByID(id:string):Observable<Employee>{
-    return this.http.get<Employee>("employees/"+id);
+  getEmployeeByID(id:string):Observable<EmployeeResponse>{
+    return this.http.get<EmployeeResponse>("employees/"+id);
   }
 }

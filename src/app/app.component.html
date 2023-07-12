@@ -27,11 +27,15 @@
 </div>
 
 </div>  
+<app-alert *ngIf="showAlert" [statusCode]="statusCode" [message]="message"></app-alert>
   <div class="container-fluid" >
       <app-employee-list [employeesList]="employeesList" *ngIf="employeesList"></app-employee-list>
       <app-employee [employee]="employee" *ngIf="employee"></app-employee>
     <!-- <router-outlet></router-outlet> -->
 </div>
+
+  
+
   <!-- Footer -->
   <footer>
       
